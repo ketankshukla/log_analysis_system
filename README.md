@@ -1,27 +1,3 @@
-<style>
-  .markdown-body {
-    font-size: 16px;
-  }
-  .markdown-body h1 {
-    font-size: 2.5em;
-  }
-  .markdown-body h2 {
-    font-size: 2.0em;
-  }
-  .markdown-body h3 {
-    font-size: 1.6em;
-  }
-  .markdown-body p, 
-  .markdown-body li, 
-  .markdown-body ul, 
-  .markdown-body ol {
-    font-size: 1.2em;
-  }
-  .markdown-body code {
-    font-size: 1.1em;
-  }
-</style>
-
 # Log Analysis & Monitoring System
 
 ## Project Overview

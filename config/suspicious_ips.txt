@@ -1,0 +1,15 @@
+# List of known suspicious IP addresses
+# Format: one IP per line, comments start with #
+
+# Known scanners
+45.33.10.20
+185.191.171.8
+82.221.129.19
+89.248.167.131
+
+# Known attackers
+23.129.64.102
+103.234.220.197
+185.222.209.133
+
+# Any other suspicious IPs can be added below

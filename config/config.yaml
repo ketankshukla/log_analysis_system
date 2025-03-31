@@ -1,0 +1,68 @@
+# Log Analysis & Monitoring System Configuration
+
+# Database settings
+database:
+  path: "data/database.db"
+  backup_dir: "data/backups"
+
+# Log sources configuration
+logs:
+  source_dir: "data/logs"
+  supported_formats:
+    - apache
+    - nginx
+    - custom
+
+# Performance monitoring thresholds
+performance_thresholds:
+  slow_endpoint_avg: 0.5  # seconds
+  slow_endpoint_p95: 2.0  # seconds
+  high_error_rate: 0.05   # 5% error rate
+
+# Security monitoring
+security:
+  suspicious_ips_file: "config/suspicious_ips.txt"
+  attack_patterns:
+    - "SELECT.*FROM"
+    - "DELETE.*FROM"
+    - "UNION.*SELECT"
+    - "../.."
+    - "/etc/passwd"
+    - "<script>"
+  scan_patterns:
+    - ".git"
+    - "wp-admin"
+    - "wp-login"
+    - "phpMyAdmin"
+    - ".env"
+    - ".config"
+
+# Anomaly detection settings
+anomaly_detection:
+  window_size: 3600  # seconds (1 hour)
+  z_score_threshold: 3.0
+  min_data_points: 10
+
+# Alerting configuration
+alerting:
+  min_anomalies_for_alert: 5
+  throttle_period: 3600  # seconds (1 hour)
+
+# Email notification settings
+email:
+  enabled: false  # Set to true to enable email notifications
+  smtp_server: "smtp.example.com"
+  smtp_port: 587
+  use_tls: true
+  username: "alerts@example.com"
+  password: "your_password_here"  # Consider using environment variables
+  from_address: "alerts@example.com"
+  to_addresses:
+    - "admin@example.com"
+    - "oncall@example.com"
+
+# Archiving configuration
+archiving:
+  enabled: true
+  retention_days: 30
+  archive_dir: "data/archives"

@@ -1,0 +1,37 @@
+# Log Analysis & Monitoring System - Regex Patterns
+
+# Apache log patterns
+apache:
+  # Common Log Format (CLF)
+  common_log: '^(?P<ip_address>\S+) \S+ \S+ \[(?P<timestamp>[^\]]+)\] "(?P<method>[A-Z]+) (?P<endpoint>[^ "]+) (?P<protocol>[^"]+)" (?P<status>\d+) (?P<bytes_sent>\d+|-)'
+  
+  # Combined Log Format
+  combined_log: '^(?P<ip_address>\S+) \S+ \S+ \[(?P<timestamp>[^\]]+)\] "(?P<method>[A-Z]+) (?P<endpoint>[^ "]+) (?P<protocol>[^"]+)" (?P<status>\d+) (?P<bytes_sent>\d+|-) "(?P<referer>[^"]*)" "(?P<user_agent>[^"]*)"'
+  
+  # Combined with response time
+  combined_with_time: '^(?P<ip_address>\S+) \S+ \S+ \[(?P<timestamp>[^\]]+)\] "(?P<method>[A-Z]+) (?P<endpoint>[^ "]+) (?P<protocol>[^"]+)" (?P<status>\d+) (?P<bytes_sent>\d+|-) "(?P<referer>[^"]*)" "(?P<user_agent>[^"]*)" (?P<response_time>\d+\.\d+)'
+  
+  # Error log
+  error_log: '^\[(?P<timestamp>[^\]]+)\] \[(?P<level>[^\]]+)\] \[(?P<module>[^\]]+)\] \[(?P<pid>[^\]]+)\] (?P<message>.*)'
+
+# Nginx log patterns
+nginx:
+  # Default access log
+  access_log: '^(?P<ip_address>\S+) \S+ \S+ \[(?P<timestamp>[^\]]+)\] "(?P<method>[A-Z]+) (?P<endpoint>[^ "]+) (?P<protocol>[^"]+)" (?P<status>\d+) (?P<bytes_sent>\d+) "(?P<referer>[^"]*)" "(?P<user_agent>[^"]*)" "(?P<forwarded_for>[^"]*)"'
+  
+  # Access log with response time
+  access_log_with_time: '^(?P<ip_address>\S+) \S+ \S+ \[(?P<timestamp>[^\]]+)\] "(?P<method>[A-Z]+) (?P<endpoint>[^ "]+) (?P<protocol>[^"]+)" (?P<status>\d+) (?P<bytes_sent>\d+) "(?P<referer>[^"]*)" "(?P<user_agent>[^"]*)" "(?P<forwarded_for>[^"]*)" (?P<response_time>\d+\.\d+)'
+  
+  # Error log
+  error_log: '^(?P<timestamp>\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}) \[(?P<level>\w+)\] (?P<pid>\d+)#(?P<tid>\d+): (?P<message>.*)'
+
+# Custom application log patterns
+custom:
+  # Generic application log with timestamp, level, and message
+  app_log: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}) (?P<level>[A-Z]+) \[(?P<thread>[^\]]+)\] (?P<class>[^ ]+) - (?P<message>.*)'
+  
+  # JSON formatted logs
+  json_log: '^\{.*"timestamp":"(?P<timestamp>[^"]+)".*"level":"(?P<level>[^"]+)".*"message":"(?P<message>[^"]+)".*\}$'
+  
+  # Key-value pair logs
+  kv_log: '^timestamp="(?P<timestamp>[^"]+)" level="(?P<level>[^"]+)" (?P<key_values>.*)'

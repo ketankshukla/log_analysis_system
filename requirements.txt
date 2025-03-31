@@ -1,0 +1,9 @@
+pandas
+numpy
+scipy
+pyyaml
+pytest
+pytest-cov
+colorama
+python-dateutil
+tabulate

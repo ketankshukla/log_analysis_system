@@ -1,20 +1,23 @@
 <style>
-  body {
+  .markdown-body {
     font-size: 16px;
   }
-  h1 {
+  .markdown-body h1 {
     font-size: 2.5em;
   }
-  h2 {
+  .markdown-body h2 {
     font-size: 2.0em;
   }
-  h3 {
+  .markdown-body h3 {
     font-size: 1.6em;
   }
-  p, li, ul, ol {
+  .markdown-body p, 
+  .markdown-body li, 
+  .markdown-body ul, 
+  .markdown-body ol {
     font-size: 1.2em;
   }
-  code {
+  .markdown-body code {
     font-size: 1.1em;
   }
 </style>
